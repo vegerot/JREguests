@@ -4,6 +4,7 @@ import re
 import numpy as np
 import pandas as pd
 import youtube_dl
+from tabulate import tabulate
 
 def getTitles():
     ydl = youtube_dl.YoutubeDL({'outtmpl': '%(id)s%(ext)s'})
@@ -30,7 +31,7 @@ def getTitles():
 
 def getNames(titles):
     names = []
-    p = re.compile(r'^.*?#.*?(-|with)\s*?(?P<name>.*?)(\(.*?\))?$')
+    p = re.compile(r'^.*?#.*?(-|with)+\s*?(?P<name>.*?)(\(.*?\))?$')
     for title in titles:
         try:
             allGuests = re.split(',|&', p.match(title).group('name'))
@@ -58,6 +59,13 @@ def removeSingles(arr):
     arr = np.delete(arr, delRange, 0)
     return arr
 
+def printer(counts):
+    print(tabulate(counts))
+
+def redditPrinter(counts):
+    for guest in counts:
+        print("|"+guest[0]+"|"+str(guest[1])+"|")
+
 def main():
     #Uncomment to download list from web (slow)
     #titles = getTitles()
@@ -67,8 +75,9 @@ def main():
 
     names = getNames(titles)
     viewCounts = count(names)
+    viewCounts
     relevantCounts = removeSingles(viewCounts)
-    print(relevantCounts)
+    printer(relevantCounts)
 
 
 if __name__ == '__main__':
