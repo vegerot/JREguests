@@ -9,7 +9,7 @@ def getTitles():
     ydl = youtube_dl.YoutubeDL({'outtmpl': '%(id)s%(ext)s'})
 
     with ydl:
-        ydl.params.update(ignoreerrors=True)
+        ydl.params.update(ignoreerrors=True) #Dom Irrera's podcast is blocked on Copyright grounds
         result = ydl.extract_info(
             'https://www.youtube.com/playlist?list=UUzQUP1qoWDoEbmsQxvdjxgQ',
             download = False # We just want to extract the info
