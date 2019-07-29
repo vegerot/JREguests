@@ -8,9 +8,8 @@ steps to run:
 
 Bugs:
 * This is not perfect.  It does not take into account things like:
-
-* *Nicknames (e.g. Joey "CoCo" Diaz vs. Joey Diaz)
-* *Alternate spellings (e.g. Neil deGrasse Tyson vs. Neil DeGrasse Tyson)
+  *Nicknames (e.g. Joey "CoCo" Diaz vs. Joey Diaz)
+    *Alternate spellings (e.g. Neil deGrasse Tyson vs. Neil DeGrasse Tyson)
 *For some reason, Dom Irrera's episode has been blocked on copywrite grounds.  Workarounds for this have been put in place
 Please, if anybody wants to work on fixing these issues, please feel free to fork me!
 
