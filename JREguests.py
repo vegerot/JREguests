@@ -59,6 +59,12 @@ def removeSingles(arr):
     arr = np.delete(arr, delRange, 0)
     return arr
 
+def mathewPrinciple(arr):
+   print(np.sum(arr[:int(np.sqrt(len(arr)))][:,1]))
+   print(np.sum(arr[int(np.sqrt(len(arr)))+1:][:,1]))
+
+
+
 def printer(counts):
     print(tabulate(counts))
 
@@ -75,10 +81,9 @@ def main():
 
     names = getNames(titles)
     viewCounts = count(names)
-    viewCounts
+    #redditPrinter(viewCounts)
     relevantCounts = removeSingles(viewCounts)
     printer(relevantCounts)
-
 
 if __name__ == '__main__':
     main()
